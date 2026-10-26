@@ -1,0 +1,74 @@
+[
+  {
+    "anio": "2026",
+    "mes": "02",
+    "nro": "1",
+    "fechaPublicacion": "04/02/2026 19:33",
+    "nomenclatura": "LP-ABR-1-2026-CS/MDC-1",
+    "objeto": "Bien",
+    "descripcion": "ADQUISICIÓN DE INSUMOS PARA EL PROGRAMA VASO DE LECHE DE LA MUNICIPALIDAD DISTRITAL DE CARHUAMAYO 2026",
+    "monto": "189,812.16",
+    "cui": "",
+    "enlaceSeace": "https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/ongei/buscadorPublico.xhtml?ruc_entidad=20185644830&anio=2026&mes=02&theme=ongei"
+  },
+  {
+    "anio": "2026",
+    "mes": "07",
+    "nro": "1",
+    "fechaPublicacion": "15/07/2026 19:57",
+    "nomenclatura": "LP-ABR-2-2026-CS/MDC-1",
+    "objeto": "Obra",
+    "descripcion": "CONTRATACIÓN DE EJECUCIÓN DE LA OBRA ¿CONSTRUCCIÓN DE AULA DE EDUCACIÓN INICIAL; EN EL (LA) I.E. 548 JESÚS DE BELEN DISTRITO DE CARHUAMAYO, PROVINCIA JUNÍN, DEPARTAMENTO JUNÍN¿ CON CUI: 2629849",
+    "monto": "138,970.97",
+    "cui": "2629849",
+    "enlaceSeace": "https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/ongei/buscadorPublico.xhtml?ruc_entidad=20185644830&anio=2026&mes=07&theme=ongei"
+  },
+  {
+    "anio": "2026",
+    "mes": "09",
+    "nro": "1",
+    "fechaPublicacion": "01/09/2026 18:24",
+    "nomenclatura": "LP-ABR-2-2026-CS/MDC-2",
+    "objeto": "Obra",
+    "descripcion": "CONTRATACIÓN DE EJECUCIÓN DE LA OBRA ¿CONSTRUCCIÓN DE AULA DE EDUCACIÓN INICIAL; EN EL (LA) I.E. 548 JESÚS DE BELEN DISTRITO DE CARHUAMAYO, PROVINCIA JUNÍN, DEPARTAMENTO JUNÍN¿ CON CUI: 2629849",
+    "monto": "136,970.97",
+    "cui": "2629849",
+    "enlaceSeace": "https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/ongei/buscadorPublico.xhtml?ruc_entidad=20185644830&anio=2026&mes=09&theme=ongei"
+  },
+  {
+    "anio": "2025",
+    "mes": "03",
+    "nro": "1",
+    "fechaPublicacion": "17/03/2025 17:56",
+    "nomenclatura": "AS-SM-1-2025-CS/MDC-1",
+    "objeto": "Bien",
+    "descripcion": "ADQUISICIÓN DE BIENES PARA EL PROGRAMA DE VASO DE LECHE (PVL) DE LA MUNICIPALIDAD DISTRITAL DE CARHUAMAYO 2025",
+    "monto": "189,830.04",
+    "cui": "",
+    "enlaceSeace": "https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/ongei/buscadorPublico.xhtml?ruc_entidad=20185644830&anio=2025&mes=03&theme=ongei"
+  },
+  {
+    "anio": "2025",
+    "mes": "10",
+    "nro": "1",
+    "fechaPublicacion": "15/10/2025 18:43",
+    "nomenclatura": "LP-ABR-1-2025-CS/MDC-1",
+    "objeto": "Obra",
+    "descripcion": "CONTRATACIÓN PARA LA EJECUCIÓN DE OBRA IOARR: ¿RENOVACIÓN DE PUENTE; EN EL(LA) CAMINO VECINAL CON CODIGO DE RUTA JU 533 QUIUYACRUZ ¿ SHALIPAYCO - PTA CARRETERA: PUENTE ACEROCANCHAY Y PUENTE NUNAHUARCO DISTRITO DE CARHUAMAYO, PROVINCIA JUNIN, DEPARTAMENTO JUNIN¿, CON CUI N°2641105",
+    "monto": "1,259,734.00",
+    "cui": "",
+    "enlaceSeace": "https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/ongei/buscadorPublico.xhtml?ruc_entidad=20185644830&anio=2025&mes=10&theme=ongei"
+  },
+  {
+    "anio": "2025",
+    "mes": "11",
+    "nro": "1",
+    "fechaPublicacion": "06/11/2025 19:02",
+    "nomenclatura": "CP-ABR-1-2025-CS/MDC-1",
+    "objeto": "Consultoría de Obra",
+    "descripcion": "SERVICIO DE CONSULTORIA DE OBRA PARA LA SUPERVISION DE LA OBRA IOARR: RENOVACIÓN DE PUENTE; EN EL(LA) CAMINO VECINAL CON CODIGO DE RUTA JU 533 QUIUYACRUZ - SHALIPAYCO - PTA CARRETERA: PUENTE ACEROCANCHAY Y PUENTE NUNAHUARCO DISTRITO DE CARHUAMAYO,PROVINCIA JUNIN, DEPARTAMENTO JUNIN, CON CUI N 264110",
+    "monto": "62,986.70",
+    "cui": "",
+    "enlaceSeace": "https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/ongei/buscadorPublico.xhtml?ruc_entidad=20185644830&anio=2025&mes=11&theme=ongei"
+  }
+]

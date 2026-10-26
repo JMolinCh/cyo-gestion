@@ -1,0 +1,242 @@
+{
+  "entidad": "MUNICIPALIDAD DISTRITAL DE CARHUAMAYO",
+  "ubigeo": "120502",
+  "codigoSiaf": "301087",
+  "ano": 2026,
+  "totales": {
+    "pia": 5865907.0,
+    "pim": 10523022.0,
+    "certificacion": 8938570.0,
+    "compromisoAnual": 8621575.0,
+    "atencionCompromiso": 7932404.0,
+    "devengado": 7862479.0,
+    "girado": 7619232.0,
+    "avancePorcentaje": 74.7
+  },
+  "rubros": [
+    {
+      "id": "rubro-00",
+      "codigoRubro": "00",
+      "rubro": "RECURSOS ORDINARIOS",
+      "fuenteFinanciamiento": "Recursos Ordinarios",
+      "pia": 3742486.0,
+      "pim": 5069307.0,
+      "certificacion": 4851378.0,
+      "compromisoAnual": 4851378.0,
+      "atencionCompromiso": 4678742.0,
+      "devengado": 4678742.0,
+      "girado": 4674767.0,
+      "avancePorcentaje": 92.3
+    },
+    {
+      "id": "rubro-07",
+      "codigoRubro": "07",
+      "rubro": "FONDO DE COMPENSACION MUNICIPAL",
+      "fuenteFinanciamiento": "Recursos Determinados",
+      "pia": 1558449.0,
+      "pim": 2054283.0,
+      "certificacion": 1669658.0,
+      "compromisoAnual": 1530676.0,
+      "atencionCompromiso": 1255224.0,
+      "devengado": 1230559.0,
+      "girado": 1213920.0,
+      "avancePorcentaje": 59.9
+    },
+    {
+      "id": "rubro-08",
+      "codigoRubro": "08",
+      "rubro": "IMPUESTOS MUNICIPALES",
+      "fuenteFinanciamiento": "Recursos Determinados",
+      "pia": 70000.0,
+      "pim": 273841.0,
+      "certificacion": 261297.0,
+      "compromisoAnual": 255697.0,
+      "atencionCompromiso": 253222.0,
+      "devengado": 251316.0,
+      "girado": 226316.0,
+      "avancePorcentaje": 91.8
+    },
+    {
+      "id": "rubro-09",
+      "codigoRubro": "09",
+      "rubro": "RECURSOS DIRECTAMENTE RECAUDADOS",
+      "fuenteFinanciamiento": "Recursos Directamente Recaudados",
+      "pia": 120000.0,
+      "pim": 466373.0,
+      "certificacion": 429333.0,
+      "compromisoAnual": 403890.0,
+      "atencionCompromiso": 401390.0,
+      "devengado": 376036.0,
+      "girado": 370901.0,
+      "avancePorcentaje": 80.6
+    },
+    {
+      "id": "rubro-18",
+      "codigoRubro": "18",
+      "rubro": "CANON Y SOBRECANON, REGALIAS, RENTA DE ADUANAS Y PARTICIPACIONES",
+      "fuenteFinanciamiento": "Recursos Determinados",
+      "pia": 374972.0,
+      "pim": 2659218.0,
+      "certificacion": 1726905.0,
+      "compromisoAnual": 1579934.0,
+      "atencionCompromiso": 1343826.0,
+      "devengado": 1325826.0,
+      "girado": 1133327.0,
+      "avancePorcentaje": 49.9
+    }
+  ],
+  "genericas": [
+    {
+      "codigo": "2.1",
+      "codigoOriginal": "5-21",
+      "nombre": "PERSONAL Y OBLIGACIONES SOCIALES",
+      "categoria": "Gasto Corriente",
+      "pia": 1054605.0,
+      "pim": 1197845.0,
+      "certificacion": 1155427.0,
+      "compromisoAnual": 1052483.0,
+      "devengado": 777031.0,
+      "girado": 770559.0,
+      "avancePorcentaje": 64.9
+    },
+    {
+      "codigo": "2.2",
+      "codigoOriginal": "5-22",
+      "nombre": "PENSIONES Y OTRAS PRESTACIONES SOCIALES",
+      "categoria": "Gasto Corriente",
+      "pia": 189856.0,
+      "pim": 189856.0,
+      "certificacion": 189812.0,
+      "compromisoAnual": 189812.0,
+      "devengado": 142359.0,
+      "girado": 142359.0,
+      "avancePorcentaje": 75.0
+    },
+    {
+      "codigo": "2.3",
+      "codigoOriginal": "5-23",
+      "nombre": "BIENES Y SERVICIOS",
+      "categoria": "Gasto Corriente",
+      "pia": 600844.0,
+      "pim": 1073455.0,
+      "certificacion": 963964.0,
+      "compromisoAnual": 896884.0,
+      "devengado": 854788.0,
+      "girado": 814088.0,
+      "avancePorcentaje": 79.6
+    },
+    {
+      "codigo": "2.4",
+      "codigoOriginal": "5-24",
+      "nombre": "DONACIONES Y TRANSFERENCIAS",
+      "categoria": "Gasto Corriente",
+      "pia": 43000.0,
+      "pim": 43000.0,
+      "certificacion": 25860.0,
+      "compromisoAnual": 25860.0,
+      "devengado": 17055.0,
+      "girado": 17055.0,
+      "avancePorcentaje": 39.7
+    },
+    {
+      "codigo": "2.5",
+      "codigoOriginal": "5-25",
+      "nombre": "OTROS GASTOS",
+      "categoria": "Gasto Corriente",
+      "pia": 0.0,
+      "pim": 1024.0,
+      "certificacion": 1014.0,
+      "compromisoAnual": 1014.0,
+      "devengado": 1014.0,
+      "girado": 1014.0,
+      "avancePorcentaje": 99.0
+    },
+    {
+      "codigo": "2.6",
+      "codigoOriginal": "6-26",
+      "nombre": "ADQUISICION DE ACTIVOS NO FINANCIEROS",
+      "categoria": "Gasto de Capital",
+      "pia": 3977602.0,
+      "pim": 8017842.0,
+      "certificacion": 6602493.0,
+      "compromisoAnual": 6455522.0,
+      "devengado": 6070232.0,
+      "girado": 5874158.0,
+      "avancePorcentaje": 75.7
+    }
+  ],
+  "mensual": [
+    {
+      "mes": "Ene",
+      "programado": 4502358.0,
+      "ejecutado": 525348.0,
+      "acumulado": 525348.0
+    },
+    {
+      "mes": "Feb",
+      "programado": 277999.0,
+      "ejecutado": 932634.0,
+      "acumulado": 1457982.0
+    },
+    {
+      "mes": "Mar",
+      "programado": 1895935.0,
+      "ejecutado": 1565807.0,
+      "acumulado": 3023789.0
+    },
+    {
+      "mes": "Abr",
+      "programado": 40761.0,
+      "ejecutado": 1060594.0,
+      "acumulado": 4084383.0
+    },
+    {
+      "mes": "May",
+      "programado": 136002.0,
+      "ejecutado": 307764.0,
+      "acumulado": 4392147.0
+    },
+    {
+      "mes": "Jun",
+      "programado": 242594.0,
+      "ejecutado": 1315261.0,
+      "acumulado": 5707408.0
+    },
+    {
+      "mes": "Jul",
+      "programado": 127903.0,
+      "ejecutado": 376222.0,
+      "acumulado": 6083630.0
+    },
+    {
+      "mes": "Ago",
+      "programado": 1372613.0,
+      "ejecutado": 1263890.0,
+      "acumulado": 7347520.0
+    },
+    {
+      "mes": "Sep",
+      "programado": 262352.0,
+      "ejecutado": 400984.0,
+      "acumulado": 7748504.0
+    },
+    {
+      "mes": "Oct",
+      "programado": 80051.0,
+      "ejecutado": 183899.0,
+      "acumulado": 7932403.0
+    },
+    {
+      "mes": "Nov",
+      "programado": 0.0,
+      "ejecutado": 0.0,
+      "acumulado": 7932403.0
+    },
+    {
+      "mes": "Dic",
+      "programado": 0.0,
+      "ejecutado": 0.0,
+      "acumulado": 7932403.0
+    }
+  ]
+}
