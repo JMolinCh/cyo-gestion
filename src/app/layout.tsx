@@ -5,20 +5,49 @@ import Footer from '@/components/Footer';
 import SplashLoader from '@/components/SplashLoader';
 
 export const metadata: Metadata = {
-  title: 'MDC Carhuamayo | Portal de Gestión Pública en Tiempo Real',
+  title: 'Municipalidad Distrital de Carhuamayo | Portal de Gestión Pública y Datos en Tiempo Real',
   description:
-    'Portal de inteligencia pública, ejecución presupuestal MEF, contrataciones SEACE, obras públicas y modernización de la Municipalidad Distrital de Carhuamayo - Junín, Perú.',
+    'Observatorio cívico y ciudadano de Carhuamayo (Junín): Consulta en vivo la ejecución presupuestal MEF, órdenes y licitaciones SEACE, cartera de 45 obras públicas Invierte.pe y normas legales.',
   keywords: [
     'Carhuamayo',
-    'Municipalidad de Carhuamayo',
+    'Municipalidad Distrital de Carhuamayo',
     'Junín',
-    'Presupuesto MEF',
-    'SIAF',
-    'SEACE',
-    'Obras Públicas',
-    'Maca',
-    'Transparencia Perú',
+    'Presupuesto MEF Carhuamayo',
+    'SIAF Carhuamayo',
+    'SEACE Carhuamayo',
+    'Obras Públicas Carhuamayo',
+    'Capital de la Maca',
+    'Transparencia Junín',
+    'Jhann Chavez Molina',
   ],
+  authors: [{ name: 'Jhann W. Chavez Molina' }],
+  creator: 'Jhann W. Chavez Molina',
+  openGraph: {
+    title: 'Municipalidad Distrital de Carhuamayo | Portal de Gestión Pública',
+    description:
+      'Monitoreo cívico en tiempo real: Presupuesto MEF, Licitaciones SEACE, 45 Obras Públicas Invierte.pe y Normas Oficiales.',
+    type: 'website',
+    locale: 'es_PE',
+    images: [
+      {
+        url: '/images/portada_carhuamayo.jpg',
+        width: 1024,
+        height: 571,
+        alt: 'Bienvenidos a Carhuamayo - Portal de Gestión Pública',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Municipalidad Distrital de Carhuamayo | Portal de Gestión Pública',
+    description:
+      'Monitoreo cívico en tiempo real: Presupuesto MEF, Licitaciones SEACE, 45 Obras Públicas Invierte.pe.',
+    images: ['/images/portada_carhuamayo.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
