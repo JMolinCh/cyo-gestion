@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
   BarChart3, 
@@ -32,13 +32,62 @@ import StatCard from '@/components/StatCard';
 import BudgetCharts from '@/components/BudgetCharts';
 import ProcurementTable from '@/components/ProcurementTable';
 
-import { PRESUPUESTO_GENERAL_INFO, RUBROS_PRESUPUESTO } from '@/data/carhuamayoPresupuesto';
+import { PRESUPUESTO_GENERAL_INFO, RUBROS_PRESUPUESTO, getFechaCorteActual } from '@/data/carhuamayoPresupuesto';
 import { CONTRATACIONES_CARHUAMAYO } from '@/data/carhuamayoContrataciones';
 import { PROYECTOS_INVIERTE_CARHUAMAYO } from '@/data/carhuamayoInvierte';
 import { Contratacion } from '@/types';
 
 export default function HomePage() {
   const [contrataciones, setContrataciones] = useState<Contratacion[]>(CONTRATACIONES_CARHUAMAYO);
+  const [infoPresupuesto, setInfoPresupuesto] = useState(PRESUPUESTO_GENERAL_INFO);
+  const [fechaCorte, setFechaCorte] = useState<string>('5 de noviembre de 2026');
+
+  useEffect(() => {
+    // 1. Fecha dinámica basada en la fecha del sistema
+    const fechaDinamica = getFechaCorteActual();
+    setFechaCorte(fechaDinamica);
+
+    // 2. Comprobar si hay datos guardados de la última sincronización en LocalStorage
+    try {
+      const saved = localStorage.getItem('carhuamayo_presupuesto_custom_v1');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.infoPresupuesto) {
+          setInfoPresupuesto(parsed.infoPresupuesto);
+          if (parsed.infoPresupuesto.fechaCorte) {
+            setFechaCorte(parsed.infoPresupuesto.fechaCorte);
+          }
+          return;
+        }
+      }
+
+      // 3. Si no está en LocalStorage, consultar el endpoint de caché reciente
+      fetch('/api/presupuesto/scrape')
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.success && json.data) {
+            if (json.fechaCorte) {
+              setFechaCorte(json.fechaCorte);
+            }
+            if (json.data.totales) {
+              const tot = json.data.totales;
+              setInfoPresupuesto((prev) => ({
+                ...prev,
+                pimTotal: tot.pim || prev.pimTotal,
+                certificacionTotal: tot.certificacion || prev.certificacionTotal,
+                compromisoTotal: tot.compromisoAnual || prev.compromisoTotal,
+                devengadoTotal: tot.devengado || prev.devengadoTotal,
+                giradoTotal: tot.girado || prev.giradoTotal,
+                porcentajeEjecucion: tot.avancePorcentaje || prev.porcentajeEjecucion,
+              }));
+            }
+          }
+        })
+        .catch(() => {});
+    } catch {
+      // fallback
+    }
+  }, []);
 
   // Totales de contrataciones y órdenes
   const totalContratado = contrataciones.reduce((acc, curr) => acc + curr.monto, 0);
@@ -62,30 +111,30 @@ export default function HomePage() {
             Indicadores Clave de Gestión (Año Fiscal 2026)
           </h2>
           <span className="text-[11px] text-slate-400">
-            Corte al {PRESUPUESTO_GENERAL_INFO.ultimaActualizacion}
+            Corte al {fechaCorte} (Sincronizado en vivo con MEF Consulta Amigable)
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <StatCard
             title="Presupuesto Modificado (PIM)"
-            value={`S/. ${(PRESUPUESTO_GENERAL_INFO.pimTotal / 1000000).toFixed(2)}M`}
-            subtitle={`PIA Apertura: S/. ${(PRESUPUESTO_GENERAL_INFO.piaTotal / 1000000).toFixed(2)}M`}
+            value={`S/. ${(infoPresupuesto.pimTotal / 1000000).toFixed(2)}M`}
+            subtitle={`PIA Apertura: S/. ${(infoPresupuesto.piaTotal / 1000000).toFixed(2)}M`}
             icon={DollarSign}
             colorTheme="blue"
             trend={{
-              value: `+${(((PRESUPUESTO_GENERAL_INFO.pimTotal - PRESUPUESTO_GENERAL_INFO.piaTotal) / PRESUPUESTO_GENERAL_INFO.piaTotal) * 100).toFixed(1)}% vs PIA`,
+              value: `+${(((infoPresupuesto.pimTotal - infoPresupuesto.piaTotal) / infoPresupuesto.piaTotal) * 100).toFixed(1)}% vs PIA`,
               isPositive: true,
             }}
           />
 
           <StatCard
             title="Ejecución de Gasto (MEF)"
-            value={`${PRESUPUESTO_GENERAL_INFO.porcentajeEjecucion}%`}
-            subtitle={`S/. ${(PRESUPUESTO_GENERAL_INFO.devengadoTotal / 1000000).toFixed(2)}M devengados`}
+            value={`${infoPresupuesto.porcentajeEjecucion}%`}
+            subtitle={`S/. ${(infoPresupuesto.devengadoTotal / 1000000).toFixed(2)}M devengados`}
             icon={BarChart3}
             colorTheme="emerald"
-            trend={{ value: 'Certificado: S/. 8.65M', isPositive: true }}
+            trend={{ value: `Certificado: S/. ${(infoPresupuesto.certificacionTotal / 1000000).toFixed(2)}M`, isPositive: true }}
           />
 
           <StatCard
@@ -139,10 +188,10 @@ export default function HomePage() {
             <div>
               <span className="text-[11px] text-slate-500 block font-semibold">Ejecución del Presupuesto (PIM)</span>
               <span className="font-extrabold text-slate-900 text-sm">
-                S/. {PRESUPUESTO_GENERAL_INFO.pimTotal.toLocaleString('es-PE')}
+                S/. {infoPresupuesto.pimTotal.toLocaleString('es-PE')}
               </span>
               <span className="text-[10px] text-blue-700 block font-medium">
-                Devengado: S/. {PRESUPUESTO_GENERAL_INFO.devengadoTotal.toLocaleString('es-PE')} ({PRESUPUESTO_GENERAL_INFO.porcentajeEjecucion}%)
+                Devengado: S/. {infoPresupuesto.devengadoTotal.toLocaleString('es-PE')} ({infoPresupuesto.porcentajeEjecucion}%)
               </span>
             </div>
           </div>

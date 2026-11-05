@@ -13,6 +13,7 @@ import re
 import json
 import sys
 import math
+import datetime
 
 RUC_DEFAULT = "20185644830"
 
@@ -412,8 +413,9 @@ def scrape_full_seace(ruc=RUC_DEFAULT, anio="2026", mes="10", modo="all"):
     return result
 
 if __name__ == '__main__':
-    anio = sys.argv[1] if len(sys.argv) > 1 else "2026"
-    mes = sys.argv[2] if len(sys.argv) > 2 else "10"
+    now = datetime.datetime.now()
+    anio = sys.argv[1] if len(sys.argv) > 1 else str(now.year)
+    mes = sys.argv[2] if len(sys.argv) > 2 else f"{now.month:02d}"
     modo = sys.argv[3] if len(sys.argv) > 3 else "all"
     
     data = scrape_full_seace(RUC_DEFAULT, anio, mes, modo)

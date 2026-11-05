@@ -1,0 +1,39 @@
+name: Sincronización Diaria MEF & SEACE (8:00 AM)
+
+on:
+  schedule:
+    # 8:00 AM hora de Perú (UTC-5) -> 13:00 UTC
+    - cron: '0 13 * * *'
+  workflow_dispatch: # Permite ejecutar manualmente desde GitHub con un clic
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Permiso para hacer commit y push a la rama main
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar entorno Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ejecutar Scrapers de Carhuamayo (MEF y SEACE)
+        run: |
+          python scripts/run_scrapers.py
+
+      - name: Detectar cambios y actualizar repositorio
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add scripts/*.json
+          # Si hay cambios, hacer commit y push para que Vercel despliegue automáticamente
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "chore(data): actualización automática diaria MEF y SEACE (8:00 AM)"
+            git push origin main
+          else
+            echo "No se detectaron cambios nuevos en los datos de hoy."
+          fi

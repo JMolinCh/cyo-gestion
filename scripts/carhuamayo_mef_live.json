@@ -5,13 +5,13 @@
   "ano": 2026,
   "totales": {
     "pia": 5865907.0,
-    "pim": 10523022.0,
-    "certificacion": 8938570.0,
-    "compromisoAnual": 8621575.0,
-    "atencionCompromiso": 7932404.0,
-    "devengado": 7862479.0,
-    "girado": 7619232.0,
-    "avancePorcentaje": 74.7
+    "pim": 10513022.0,
+    "certificacion": 8947706.0,
+    "compromisoAnual": 8644249.0,
+    "atencionCompromiso": 8033468.0,
+    "devengado": 7958478.0,
+    "girado": 7732685.0,
+    "avancePorcentaje": 75.7
   },
   "rubros": [
     {
@@ -35,12 +35,12 @@
       "fuenteFinanciamiento": "Recursos Determinados",
       "pia": 1558449.0,
       "pim": 2054283.0,
-      "certificacion": 1669658.0,
-      "compromisoAnual": 1530676.0,
-      "atencionCompromiso": 1255224.0,
-      "devengado": 1230559.0,
-      "girado": 1213920.0,
-      "avancePorcentaje": 59.9
+      "certificacion": 1677894.0,
+      "compromisoAnual": 1543150.0,
+      "atencionCompromiso": 1348687.0,
+      "devengado": 1316699.0,
+      "girado": 1291117.0,
+      "avancePorcentaje": 64.1
     },
     {
       "id": "rubro-08",
@@ -49,12 +49,12 @@
       "fuenteFinanciamiento": "Recursos Determinados",
       "pia": 70000.0,
       "pim": 273841.0,
-      "certificacion": 261297.0,
-      "compromisoAnual": 255697.0,
-      "atencionCompromiso": 253222.0,
-      "devengado": 251316.0,
-      "girado": 226316.0,
-      "avancePorcentaje": 91.8
+      "certificacion": 262197.0,
+      "compromisoAnual": 261597.0,
+      "atencionCompromiso": 256522.0,
+      "devengado": 253516.0,
+      "girado": 253516.0,
+      "avancePorcentaje": 92.6
     },
     {
       "id": "rubro-09",
@@ -62,13 +62,13 @@
       "rubro": "RECURSOS DIRECTAMENTE RECAUDADOS",
       "fuenteFinanciamiento": "Recursos Directamente Recaudados",
       "pia": 120000.0,
-      "pim": 466373.0,
+      "pim": 456373.0,
       "certificacion": 429333.0,
-      "compromisoAnual": 403890.0,
-      "atencionCompromiso": 401390.0,
-      "devengado": 376036.0,
-      "girado": 370901.0,
-      "avancePorcentaje": 80.6
+      "compromisoAnual": 408190.0,
+      "atencionCompromiso": 405690.0,
+      "devengado": 383695.0,
+      "girado": 379957.0,
+      "avancePorcentaje": 84.1
     },
     {
       "id": "rubro-18",
@@ -94,10 +94,10 @@
       "pia": 1054605.0,
       "pim": 1197845.0,
       "certificacion": 1155427.0,
-      "compromisoAnual": 1052483.0,
-      "devengado": 777031.0,
-      "girado": 770559.0,
-      "avancePorcentaje": 64.9
+      "compromisoAnual": 1053331.0,
+      "devengado": 860281.0,
+      "girado": 834505.0,
+      "avancePorcentaje": 71.8
     },
     {
       "codigo": "2.2",
@@ -118,12 +118,12 @@
       "nombre": "BIENES Y SERVICIOS",
       "categoria": "Gasto Corriente",
       "pia": 600844.0,
-      "pim": 1073455.0,
-      "certificacion": 963964.0,
-      "compromisoAnual": 896884.0,
-      "devengado": 854788.0,
-      "girado": 814088.0,
-      "avancePorcentaje": 79.6
+      "pim": 1063455.0,
+      "certificacion": 973100.0,
+      "compromisoAnual": 918710.0,
+      "devengado": 867538.0,
+      "girado": 863594.0,
+      "avancePorcentaje": 81.6
     },
     {
       "codigo": "2.4",
@@ -217,26 +217,29 @@
     {
       "mes": "Sep",
       "programado": 262352.0,
-      "ejecutado": 400984.0,
-      "acumulado": 7748504.0
+      "ejecutado": 400989.0,
+      "acumulado": 7748509.0
     },
     {
       "mes": "Oct",
-      "programado": 80051.0,
-      "ejecutado": 183899.0,
-      "acumulado": 7932403.0
+      "programado": 88287.0,
+      "ejecutado": 276880.0,
+      "acumulado": 8025389.0
     },
     {
       "mes": "Nov",
-      "programado": 0.0,
-      "ejecutado": 0.0,
-      "acumulado": 7932403.0
+      "programado": 900.0,
+      "ejecutado": 8078.0,
+      "acumulado": 8033467.0
     },
     {
       "mes": "Dic",
       "programado": 0.0,
       "ejecutado": 0.0,
-      "acumulado": 7932403.0
+      "acumulado": 8033467.0
     }
-  ]
+  ],
+  "fechaActualizacion": "5 de noviembre de 2026 - 3:30 PM",
+  "fechaCorte": "5 de noviembre de 2026",
+  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (5 de noviembre de 2026 - 3:30 PM)"
 }

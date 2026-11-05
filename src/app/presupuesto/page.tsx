@@ -10,7 +10,6 @@ import {
   TrendingUp, 
   AlertCircle,
   Upload,
-  Edit3,
   RotateCcw,
   FileSpreadsheet,
   CheckCircle2,
@@ -80,8 +79,6 @@ export default function PresupuestoPage() {
 
   // Modales
   const [showImportModal, setShowImportModal] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
-  const [activeEditTab, setActiveEditTab] = useState<'totales' | 'rubros' | 'genericas'>('totales');
   const [notification, setNotification] = useState<string | null>(null);
 
   // Datos temporales para importación
@@ -92,56 +89,7 @@ export default function PresupuestoPage() {
     rubrosParsed: PresupuestoRubro[];
   } | null>(null);
 
-  // Formulario de edición manual
-  const [editForm, setEditForm] = useState({
-    ano: 2026,
-    piaTotal: 5865907,
-    pimTotal: 10523022,
-    devengadoTotal: 7862479,
-    giradoTotal: 7619116,
-    certificacionTotal: 8937722,
-    compromisoTotal: 8609890,
-    gastoCorrientePim: 2505180,
-    gastoCorrienteDevengado: 1792247,
-    gastoCapitalPim: 8017842,
-    gastoCapitalDevengado: 6070232,
-  });
-
   // Cargar desde LocalStorage al montar
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed.infoPresupuesto && parsed.rubros) {
-          setInfoPresupuesto(parsed.infoPresupuesto);
-          setRubros(parsed.rubros);
-          if (parsed.genericas) setGenericas(parsed.genericas);
-          if (parsed.mensual) setMensual(parsed.mensual);
-          setIsCustomData(true);
-        }
-      }
-    } catch (e) {
-      console.error('Error cargando datos locales:', e);
-    }
-  }, []);
-
-  // Actualizar editForm cuando infoPresupuesto cambie
-  useEffect(() => {
-    setEditForm({
-      ano: infoPresupuesto.ano,
-      piaTotal: infoPresupuesto.piaTotal,
-      pimTotal: infoPresupuesto.pimTotal,
-      devengadoTotal: infoPresupuesto.devengadoTotal,
-      giradoTotal: infoPresupuesto.giradoTotal,
-      certificacionTotal: infoPresupuesto.certificacionTotal,
-      compromisoTotal: infoPresupuesto.compromisoTotal,
-      gastoCorrientePim: infoPresupuesto.gastoCorrientePim,
-      gastoCorrienteDevengado: infoPresupuesto.gastoCorrienteDevengado,
-      gastoCapitalPim: infoPresupuesto.gastoCapitalPim,
-      gastoCapitalDevengado: infoPresupuesto.gastoCapitalDevengado,
-    });
-  }, [infoPresupuesto]);
 
   // Guardar en LocalStorage
   const saveStateToStorage = (
@@ -209,6 +157,12 @@ export default function PresupuestoPage() {
         });
       }
 
+      const now = new Date();
+      const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+      const fechaCorte = `${now.getDate()} de ${meses[now.getMonth()]} de ${now.getFullYear()}`;
+      const horaStr = now.toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit', hour12: true });
+      const textoCompleto = `${fechaCorte} - ${horaStr}`;
+
       const updatedInfo = {
         ...infoPresupuesto,
         ano: scraped.ano,
@@ -222,9 +176,12 @@ export default function PresupuestoPage() {
         porcentajeEjecucion: tot.avancePorcentaje,
         gastoCapitalPim: gastoCapPim || 8017842,
         gastoCapitalDevengado: gastoCapDev || 6070232,
-        gastoCorrientePim: gastoCorrPim || 2505180,
-        gastoCorrienteDevengado: gastoCorrDev || 1792247,
-        ultimaActualizacion: `Sincronizado en vivo con MEF Consulta Amigable (${new Date().toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit' })})`,
+        gastoCorrientePim: gastoCorrPim || 2495180,
+        gastoCorrienteDevengado: gastoCorrDev || 1888247,
+        fechaCorte: fechaCorte,
+        horaCorte: horaStr,
+        fechaActualizacionTexto: textoCompleto,
+        ultimaActualizacion: `Sincronizado en vivo con MEF Consulta Amigable (${textoCompleto})`,
       };
 
       setInfoPresupuesto(updatedInfo);
@@ -393,37 +350,6 @@ export default function PresupuestoPage() {
     setCsvPreview(null);
   };
 
-  // Guardar cambios del formulario de edición manual
-  const handleSaveManualEdit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const pct =
-      editForm.pimTotal > 0
-        ? parseFloat(((editForm.devengadoTotal / editForm.pimTotal) * 100).toFixed(1))
-        : 0;
-
-    const updatedInfo = {
-      ...infoPresupuesto,
-      ano: editForm.ano,
-      piaTotal: editForm.piaTotal,
-      pimTotal: editForm.pimTotal,
-      devengadoTotal: editForm.devengadoTotal,
-      giradoTotal: editForm.giradoTotal,
-      certificacionTotal: editForm.certificacionTotal,
-      compromisoTotal: editForm.compromisoTotal,
-      porcentajeEjecucion: pct,
-      gastoCorrientePim: editForm.gastoCorrientePim,
-      gastoCorrienteDevengado: editForm.gastoCorrienteDevengado,
-      gastoCapitalPim: editForm.gastoCapitalPim,
-      gastoCapitalDevengado: editForm.gastoCapitalDevengado,
-      ultimaActualizacion: `Modificado manualmente por usuario (${new Date().toLocaleDateString('es-PE')} ${new Date().toLocaleTimeString('es-PE')})`,
-    };
-
-    setInfoPresupuesto(updatedInfo);
-    saveStateToStorage(updatedInfo, rubros, genericas, mensual);
-    setShowEditModal(false);
-  };
-
   return (
     <div className="space-y-8 animate-in fade-in">
       {/* Notificación Toast */}
@@ -494,15 +420,6 @@ export default function PresupuestoPage() {
           >
             <Upload className="w-3.5 h-3.5" />
             Importar CSV
-          </button>
-
-          {/* Botón Editar Manual */}
-          <button
-            onClick={() => setShowEditModal(true)}
-            className="inline-flex items-center gap-1.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 px-3 py-2 rounded-xl text-xs font-bold shadow-sm transition"
-          >
-            <Edit3 className="w-3.5 h-3.5 text-muni-600" />
-            Editar
           </button>
 
           {/* Restablecer Valores */}
@@ -1539,212 +1456,6 @@ export default function PresupuestoPage() {
                   Aplicar Cifras al Dashboard
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* MODAL: EDITAR CIFRAS MANUALMENTE */}
-      {/* ========================================================================= */}
-      {showEditModal && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in zoom-in-95 max-h-[90vh] flex flex-col">
-            <div className="p-5 bg-gradient-to-r from-muni-900 to-slate-900 text-white flex justify-between items-center">
-              <div>
-                <h3 className="text-base font-bold flex items-center gap-2">
-                  <Edit3 className="w-5 h-5 text-muni-400" />
-                  Editor de Cifras Presupuestales de Carhuamayo
-                </h3>
-                <p className="text-xs text-slate-300">
-                  Modifica los valores del PIA, PIM, Devengado y Girado directamente
-                </p>
-              </div>
-              <button
-                onClick={() => setShowEditModal(false)}
-                className="text-slate-400 hover:text-white p-1 rounded-lg"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="p-6 overflow-y-auto space-y-4 flex-1">
-              <form id="form-edit-totales" onSubmit={handleSaveManualEdit} className="space-y-4 text-xs">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Año Fiscal
-                    </label>
-                    <input
-                      type="number"
-                      value={editForm.ano}
-                      onChange={(e) =>
-                        setEditForm({ ...editForm, ano: parseInt(e.target.value) || 2026 })
-                      }
-                      className="w-full text-xs p-2.5 bg-white border border-slate-300 rounded-lg font-bold"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      PIA Total (S/)
-                    </label>
-                    <input
-                      type="number"
-                      value={editForm.piaTotal}
-                      onChange={(e) =>
-                        setEditForm({ ...editForm, piaTotal: parseFloat(e.target.value) || 0 })
-                      }
-                      className="w-full text-xs p-2.5 bg-white border border-slate-300 rounded-lg font-bold"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      PIM Total (S/)
-                    </label>
-                    <input
-                      type="number"
-                      value={editForm.pimTotal}
-                      onChange={(e) =>
-                        setEditForm({ ...editForm, pimTotal: parseFloat(e.target.value) || 0 })
-                      }
-                      className="w-full text-xs p-2.5 bg-white border border-slate-300 rounded-lg font-bold text-muni-700"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Gasto Devengado (S/)
-                    </label>
-                    <input
-                      type="number"
-                      value={editForm.devengadoTotal}
-                      onChange={(e) =>
-                        setEditForm({
-                          ...editForm,
-                          devengadoTotal: parseFloat(e.target.value) || 0,
-                        })
-                      }
-                      className="w-full text-xs p-2.5 bg-white border border-slate-300 rounded-lg font-bold text-emerald-700"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-bold text-slate-700 block mb-1">
-                      Gasto Girado (S/)
-                    </label>
-                    <input
-                      type="number"
-                      value={editForm.giradoTotal}
-                      onChange={(e) =>
-                        setEditForm({ ...editForm, giradoTotal: parseFloat(e.target.value) || 0 })
-                      }
-                      className="w-full text-xs p-2.5 bg-white border border-slate-300 rounded-lg font-bold"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="border-t border-slate-200 pt-4">
-                  <h4 className="text-xs font-bold text-slate-800 uppercase mb-3">
-                    Desglose Gasto Corriente vs Inversión en Obras
-                  </h4>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
-                      <span className="font-bold text-blue-800 text-xs block">
-                        Gasto Corriente (Operatividad)
-                      </span>
-                      <div>
-                        <label className="text-[11px] text-slate-500 block">PIM (S/)</label>
-                        <input
-                          type="number"
-                          value={editForm.gastoCorrientePim}
-                          onChange={(e) =>
-                            setEditForm({
-                              ...editForm,
-                              gastoCorrientePim: parseFloat(e.target.value) || 0,
-                            })
-                          }
-                          className="w-full text-xs p-1.5 bg-white border border-slate-300 rounded"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-[11px] text-slate-500 block">Devengado (S/)</label>
-                        <input
-                          type="number"
-                          value={editForm.gastoCorrienteDevengado}
-                          onChange={(e) =>
-                            setEditForm({
-                              ...editForm,
-                              gastoCorrienteDevengado: parseFloat(e.target.value) || 0,
-                            })
-                          }
-                          className="w-full text-xs p-1.5 bg-white border border-slate-300 rounded"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
-                      <span className="font-bold text-emerald-800 text-xs block">
-                        Gasto de Capital (Obras / CUI)
-                      </span>
-                      <div>
-                        <label className="text-[11px] text-slate-500 block">PIM (S/)</label>
-                        <input
-                          type="number"
-                          value={editForm.gastoCapitalPim}
-                          onChange={(e) =>
-                            setEditForm({
-                              ...editForm,
-                              gastoCapitalPim: parseFloat(e.target.value) || 0,
-                            })
-                          }
-                          className="w-full text-xs p-1.5 bg-white border border-slate-300 rounded"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-[11px] text-slate-500 block">Devengado (S/)</label>
-                        <input
-                          type="number"
-                          value={editForm.gastoCapitalDevengado}
-                          onChange={(e) =>
-                            setEditForm({
-                              ...editForm,
-                              gastoCapitalDevengado: parseFloat(e.target.value) || 0,
-                            })
-                          }
-                          className="w-full text-xs p-1.5 bg-white border border-slate-300 rounded"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-
-            <div className="p-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
-              <button
-                type="button"
-                onClick={() => setShowEditModal(false)}
-                className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-200 transition"
-              >
-                Cerrar
-              </button>
-              <button
-                type="submit"
-                form="form-edit-totales"
-                className="px-5 py-2 rounded-xl text-xs font-bold text-white bg-muni-600 hover:bg-muni-700 shadow transition"
-              >
-                Guardar Cifras
-              </button>
             </div>
           </div>
         </div>

@@ -31,10 +31,25 @@ export async function POST(request: NextRequest) {
     if (fs.existsSync(jsonOutputPath)) {
       const fileData = fs.readFileSync(jsonOutputPath, 'utf-8');
       const parsed = JSON.parse(fileData);
+
+      const now = new Date();
+      const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+      const fechaCorte = `${now.getDate()} de ${meses[now.getMonth()]} de ${now.getFullYear()}`;
+      const horaStr = now.toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit', hour12: true });
+      const fechaTexto = `${fechaCorte} - ${horaStr}`;
+
+      if (!parsed.fechaActualizacion) {
+        parsed.fechaActualizacion = fechaTexto;
+        parsed.fechaCorte = fechaCorte;
+        parsed.ultimaActualizacion = `Sincronizado en vivo con MEF Consulta Amigable (${fechaTexto})`;
+      }
+
       return NextResponse.json({
         success: true,
         fuente: 'MEF - Consulta Amigable (En Vivo)',
-        fechaScraping: new Date().toISOString(),
+        fechaScraping: now.toISOString(),
+        fechaTexto: parsed.fechaActualizacion,
+        fechaCorte: parsed.fechaCorte || fechaCorte,
         data: parsed,
       });
     }
@@ -57,9 +72,24 @@ export async function GET(request: NextRequest) {
   if (fs.existsSync(jsonOutputPath)) {
     const fileData = fs.readFileSync(jsonOutputPath, 'utf-8');
     const parsed = JSON.parse(fileData);
+
+    const now = new Date();
+    const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    const fechaCorte = `${now.getDate()} de ${meses[now.getMonth()]} de ${now.getFullYear()}`;
+    const horaStr = now.toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit', hour12: true });
+    const fechaTexto = `${fechaCorte} - ${horaStr}`;
+
+    if (!parsed.fechaActualizacion) {
+      parsed.fechaActualizacion = fechaTexto;
+      parsed.fechaCorte = fechaCorte;
+      parsed.ultimaActualizacion = `Sincronizado en vivo con MEF Consulta Amigable (${fechaTexto})`;
+    }
+
     return NextResponse.json({
       success: true,
       fuente: 'MEF - Consulta Amigable (Caché reciente)',
+      fechaTexto: parsed.fechaActualizacion,
+      fechaCorte: parsed.fechaCorte || fechaCorte,
       data: parsed,
     });
   }

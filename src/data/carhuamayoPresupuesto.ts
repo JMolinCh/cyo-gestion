@@ -7,6 +7,12 @@ import {
   PresupuestoProyecto
 } from '@/types';
 
+export function getFechaCorteActual(): string {
+  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  const now = new Date();
+  return `${now.getDate()} de ${meses[now.getMonth()]} de ${now.getFullYear()}`;
+}
+
 export const PRESUPUESTO_GENERAL_INFO = {
   ano: 2026,
   entidad: 'MUNICIPALIDAD DISTRITAL DE CARHUAMAYO',
@@ -17,18 +23,21 @@ export const PRESUPUESTO_GENERAL_INFO = {
   distrito: 'CARHUAMAYO',
   alcalde: 'Gestión Municipal 2023 - 2026',
   piaTotal: 5865907,
-  pimTotal: 10523022,
-  certificacionTotal: 8937722,
-  compromisoTotal: 8609890,
-  atencionCompromisoTotal: 7920719,
-  devengadoTotal: 7862479,
-  giradoTotal: 7619116,
-  porcentajeEjecucion: 74.7, // (7862479 / 10523022) * 100
-  gastoCorrientePim: 2505180, // Personal + Pensiones + Bienes + Donaciones + Otros
-  gastoCorrienteDevengado: 1792247, // 71.5%
+  pimTotal: 10513022,
+  certificacionTotal: 8947706,
+  compromisoTotal: 8644249,
+  atencionCompromisoTotal: 8033468,
+  devengadoTotal: 7958478,
+  giradoTotal: 7732685,
+  porcentajeEjecucion: 75.7, // (7958478 / 10513022) * 100
+  gastoCorrientePim: 2495180, // Personal + Pensiones + Bienes + Donaciones + Otros
+  gastoCorrienteDevengado: 1888247, // 75.7%
   gastoCapitalPim: 8017842, // Activos No Financieros / Obras
   gastoCapitalDevengado: 6070232, // 75.7%
-  ultimaActualizacion: '23 de octubre de 2026 (Sincronizado en vivo con MEF Consulta Amigable)',
+  fechaCorte: '5 de noviembre de 2026',
+  horaCorte: '12:25 PM',
+  fechaActualizacionTexto: '5 de noviembre de 2026 - 12:25 PM',
+  ultimaActualizacion: 'Sincronizado en vivo con MEF Consulta Amigable (5 de noviembre de 2026 - 12:25 PM)',
 };
 
 export const RUBROS_PRESUPUESTO: PresupuestoRubro[] = [
@@ -52,11 +61,11 @@ export const RUBROS_PRESUPUESTO: PresupuestoRubro[] = [
     fuenteFinanciamiento: 'Recursos Determinados',
     pia: 1558449,
     pim: 2054283,
-    certificacion: 1668810,
-    compromisoAnual: 1530676,
-    devengado: 1230559,
-    girado: 1213920,
-    avancePorcentaje: 59.9,
+    certificacion: 1677894,
+    compromisoAnual: 1543150,
+    devengado: 1316699,
+    girado: 1291117,
+    avancePorcentaje: 64.1,
   },
   {
     id: 'rubro-18',
@@ -77,12 +86,12 @@ export const RUBROS_PRESUPUESTO: PresupuestoRubro[] = [
     codigoRubro: '09',
     fuenteFinanciamiento: 'Recursos Directamente Recaudados',
     pia: 120000,
-    pim: 466373,
+    pim: 456373,
     certificacion: 429333,
-    compromisoAnual: 392205,
-    devengado: 376036,
-    girado: 370785,
-    avancePorcentaje: 80.6,
+    compromisoAnual: 408190,
+    devengado: 383695,
+    girado: 379957,
+    avancePorcentaje: 84.1,
   },
   {
     id: 'rubro-08',
@@ -91,11 +100,11 @@ export const RUBROS_PRESUPUESTO: PresupuestoRubro[] = [
     fuenteFinanciamiento: 'Recursos Determinados',
     pia: 70000,
     pim: 273841,
-    certificacion: 261297,
-    compromisoAnual: 255697,
-    devengado: 251316,
-    girado: 226316,
-    avancePorcentaje: 91.8,
+    certificacion: 262197,
+    compromisoAnual: 261597,
+    devengado: 253516,
+    girado: 253516,
+    avancePorcentaje: 92.6,
   },
 ];
 
@@ -114,17 +123,17 @@ export const GENERICAS_GASTO: PresupuestoGenerica[] = [
     nombre: 'Personal y Obligaciones Sociales',
     pia: 1054605,
     pim: 1197845,
-    devengado: 777031,
-    avancePorcentaje: 64.9,
+    devengado: 860281,
+    avancePorcentaje: 71.8,
     categoria: 'Gasto Corriente',
   },
   {
     codigo: '2.3',
     nombre: 'Bienes y Servicios',
     pia: 600844,
-    pim: 1073455,
-    devengado: 854788,
-    avancePorcentaje: 79.6,
+    pim: 1063455,
+    devengado: 867538,
+    avancePorcentaje: 81.6,
     categoria: 'Gasto Corriente',
   },
   {

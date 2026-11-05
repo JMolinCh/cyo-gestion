@@ -9,6 +9,7 @@ import re
 import json
 import os
 import sys
+import datetime
 
 def parse_number(val_str):
     if not val_str:
@@ -157,6 +158,14 @@ def scrape_carhuamayo_mef(ano=2026):
             'ejecutado': m_data['dev'],
             'acumulado': acum,
         })
+
+    meses_es = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+    ahora = datetime.datetime.now()
+    hora_str = ahora.strftime("%I:%M %p").lstrip('0')
+    fecha_texto = f"{ahora.day} de {meses_es[ahora.month - 1]} de {ahora.year} - {hora_str}"
+    result['fechaActualizacion'] = fecha_texto
+    result['fechaCorte'] = f"{ahora.day} de {meses_es[ahora.month - 1]} de {ahora.year}"
+    result['ultimaActualizacion'] = f"Sincronizado en vivo con MEF Consulta Amigable ({fecha_texto})"
 
     return result
 

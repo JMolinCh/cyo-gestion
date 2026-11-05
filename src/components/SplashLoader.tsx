@@ -43,13 +43,84 @@ export default function SplashLoader({ onFinish }: SplashLoaderProps) {
     try {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 7500);
-      await fetch('/api/presupuesto/scrape', {
+      const res = await fetch('/api/presupuesto/scrape', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ano: 2026 }),
         signal: controller.signal,
       });
       clearTimeout(timeout);
+
+      if (res.ok) {
+        const json = await res.json();
+        if (json.success && json.data) {
+          const scraped = json.data;
+          const tot = scraped.totales;
+          if (tot) {
+            const now = new Date();
+            const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+            const fechaCorte = `${now.getDate()} de ${meses[now.getMonth()]} de ${now.getFullYear()}`;
+            const horaStr = now.toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit', hour12: true });
+            const textoCompleto = `${fechaCorte} - ${horaStr}`;
+
+            let capPim = 8017842;
+            let capDev = 6070232;
+            let corrPim = 2495180;
+            let corrDev = 1888247;
+            if (scraped.genericas && scraped.genericas.length > 0) {
+              capPim = 0; capDev = 0; corrPim = 0; corrDev = 0;
+              scraped.genericas.forEach((g: any) => {
+                if (g.categoria === 'Gasto de Capital') {
+                  capPim += g.pim;
+                  capDev += g.devengado;
+                } else {
+                  corrPim += g.pim;
+                  corrDev += g.devengado;
+                }
+              });
+            }
+
+            const updatedInfo = {
+              ano: scraped.ano || 2026,
+              entidad: scraped.entidad || 'MUNICIPALIDAD DISTRITAL DE CARHUAMAYO',
+              ubigeo: '120502',
+              codigoSiaf: '301087',
+              departamento: 'JUNÍN',
+              provincia: 'JUNÍN',
+              distrito: 'CARHUAMAYO',
+              alcalde: 'Gestión Municipal 2023 - 2026',
+              piaTotal: tot.pia,
+              pimTotal: tot.pim,
+              certificacionTotal: tot.certificacion,
+              compromisoTotal: tot.compromisoAnual,
+              atencionCompromisoTotal: tot.atencionCompromiso || 0,
+              devengadoTotal: tot.devengado,
+              giradoTotal: tot.girado,
+              porcentajeEjecucion: tot.avancePorcentaje,
+              gastoCapitalPim: capPim || 8017842,
+              gastoCapitalDevengado: capDev || 6070232,
+              gastoCorrientePim: corrPim || 2495180,
+              gastoCorrienteDevengado: corrDev || 1888247,
+              fechaCorte: fechaCorte,
+              horaCorte: horaStr,
+              fechaActualizacionTexto: textoCompleto,
+              ultimaActualizacion: `Sincronizado en vivo con MEF Consulta Amigable (${textoCompleto})`,
+            };
+
+            try {
+              const prev = localStorage.getItem('carhuamayo_presupuesto_custom_v1');
+              const prevObj = prev ? JSON.parse(prev) : {};
+              localStorage.setItem('carhuamayo_presupuesto_custom_v1', JSON.stringify({
+                ...prevObj,
+                infoPresupuesto: updatedInfo,
+                rubros: scraped.rubros && scraped.rubros.length > 0 ? scraped.rubros : prevObj.rubros,
+                genericas: scraped.genericas && scraped.genericas.length > 0 ? scraped.genericas : prevObj.genericas,
+                mensual: scraped.mensual && scraped.mensual.length > 0 ? scraped.mensual : prevObj.mensual,
+              }));
+            } catch (e) {}
+          }
+        }
+      }
     } catch {
       // fallback
     }
