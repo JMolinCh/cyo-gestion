@@ -628,19 +628,11 @@ export default function PresupuestoPage() {
 
         <div className="flex flex-wrap items-center gap-2">
           <a
-            href="#seccion-proyectos"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-purple-700 shadow-sm border border-slate-200 hover:bg-purple-50 transition"
-          >
-            <HardHat className="w-3.5 h-3.5 text-purple-600" />
-            <span>1. Proyectos y Obras CUI (10)</span>
-          </a>
-
-          <a
             href="#seccion-gastos"
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-blue-700 shadow-sm border border-slate-200 hover:bg-blue-50 transition"
           >
             <ArrowDownCircle className="w-3.5 h-3.5 text-blue-600" />
-            <span>2. Gastos por Rubro/Genérica</span>
+            <span>1. Gastos por Rubro/Genérica</span>
           </a>
 
           <a
@@ -648,257 +640,16 @@ export default function PresupuestoPage() {
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-emerald-700 shadow-sm border border-slate-200 hover:bg-emerald-50 transition"
           >
             <ArrowUpCircle className="w-3.5 h-3.5 text-emerald-600" />
-            <span>3. Recaudación e Ingresos</span>
+            <span>2. Recaudación e Ingresos</span>
           </a>
-        </div>
-      </div>
 
-      {/* ========================================================================= */}
-      {/* 1. TABLA DE PROYECTOS: PRODUCTO / PROYECTO (CONSULTA AMIGABLE MEF) */}
-      {/* ========================================================================= */}
-      <div id="seccion-proyectos" className="bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden scroll-mt-6">
-        <div className="p-4 sm:p-5 border-b border-slate-200 bg-slate-50/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="bg-purple-100 text-purple-800 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border border-purple-300">
-                ¿EN QUÉ SE GASTA? · PRODUCTO / PROYECTO
-              </span>
-              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                <FolderKanban className="w-4 h-4 text-purple-600" />
-                Cartera de Proyectos de Inversión y Actividades Presupuestales
-              </h3>
-            </div>
-            <p className="text-xs text-slate-500">
-              Seguimiento oficial de obras públicas (CUI) y actividades según Consulta Amigable MEF (Pliego 301087 - Carhuamayo)
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            <div className="flex items-center gap-1 bg-slate-200/70 p-1 rounded-lg">
-              <button
-                onClick={() => setFiltroProyectosTipo('proyectos')}
-                className={`px-3 py-1.5 rounded-md text-xs font-bold transition ${
-                  filtroProyectosTipo === 'proyectos'
-                    ? 'bg-white text-slate-900 shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                Solo Proyectos / Obras CUI ({proyectos.filter((p) => p.esProyecto).length})
-              </button>
-              <button
-                onClick={() => setFiltroProyectosTipo('actividades')}
-                className={`px-3 py-1.5 rounded-md text-xs font-bold transition ${
-                  filtroProyectosTipo === 'actividades'
-                    ? 'bg-white text-slate-900 shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                Actividades y Servicios ({proyectos.filter((p) => !p.esProyecto).length})
-              </button>
-              <button
-                onClick={() => setFiltroProyectosTipo('todos')}
-                className={`px-3 py-1.5 rounded-md text-xs font-bold transition ${
-                  filtroProyectosTipo === 'todos'
-                    ? 'bg-white text-slate-900 shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                Ver Todos ({proyectos.length})
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Barra de Búsqueda y Mini-KPIs */}
-        <div className="p-3.5 bg-slate-50/80 border-b border-slate-200 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 text-xs">
-          <div className="relative flex-1 max-w-md">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
-            <input
-              type="text"
-              placeholder="Buscar por código CUI o descripción del proyecto..."
-              value={searchTermProyectos}
-              onChange={(e) => setSearchTermProyectos(e.target.value)}
-              className="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-muni-500 shadow-xs"
-            />
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 text-[11px]">
-            <div className="bg-white px-3 py-1.5 rounded-lg border border-slate-200">
-              <span className="text-slate-400 block text-[10px]">PIM Filtrado:</span>
-              <span className="font-bold text-slate-800">
-                S/. {filteredProyectos.reduce((acc, p) => acc + p.pim, 0).toLocaleString('es-PE')}
-              </span>
-            </div>
-
-            <div className="bg-white px-3 py-1.5 rounded-lg border border-slate-200">
-              <span className="text-slate-400 block text-[10px]">Devengado Filtrado:</span>
-              <span className="font-bold text-emerald-700">
-                S/. {filteredProyectos.reduce((acc, p) => acc + p.devengado, 0).toLocaleString('es-PE')}
-              </span>
-            </div>
-
-            <div className="bg-white px-3 py-1.5 rounded-lg border border-slate-200">
-              <span className="text-slate-400 block text-[10px]">Avance Ponderado:</span>
-              <span className="font-extrabold text-purple-700">
-                {(
-                  (filteredProyectos.reduce((acc, p) => acc + p.devengado, 0) /
-                    (filteredProyectos.reduce((acc, p) => acc + p.pim, 0) || 1)) *
-                  100
-                ).toFixed(1)}
-                %
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Tabla Principal de Proyectos con Scroll Horizontal */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-xs">
-            <thead>
-              <tr className="bg-slate-100/90 font-bold text-slate-600 uppercase border-b border-slate-200 text-[11px]">
-                <th className="py-3 px-4 min-w-[340px]">Proyecto / Actividad</th>
-                <th className="py-3 px-3 text-right whitespace-nowrap">PIA (S/)</th>
-                <th className="py-3 px-3 text-right whitespace-nowrap">PIM (S/)</th>
-                <th className="py-3 px-3 text-right whitespace-nowrap">Certificación (S/)</th>
-                <th className="py-3 px-3 text-right whitespace-nowrap">Compromiso Anual (S/)</th>
-                <th className="py-3 px-3 text-right whitespace-nowrap">Atención Mensual (S/)</th>
-                <th className="py-3 px-3 text-right whitespace-nowrap">Devengado (S/)</th>
-                <th className="py-3 px-3 text-right whitespace-nowrap">Girado (S/)</th>
-                <th className="py-3 px-3 text-center whitespace-nowrap">Avance (%)</th>
-                <th className="py-3 px-3 text-center">Semáforo</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {filteredProyectos.length === 0 ? (
-                <tr>
-                  <td colSpan={10} className="py-8 text-center text-slate-400 font-medium">
-                    No se encontraron proyectos o actividades que coincidan con la búsqueda.
-                  </td>
-                </tr>
-              ) : (
-                filteredProyectos.map((p) => (
-                  <tr key={p.codigo} className="hover:bg-slate-50/80 transition-colors">
-                    <td className="py-3 px-4">
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-1.5 flex-wrap">
-                          <span
-                            className={`font-mono font-extrabold px-1.5 py-0.5 rounded text-[10px] ${
-                              p.esProyecto
-                                ? 'bg-purple-100 text-purple-900 border border-purple-200'
-                                : 'bg-slate-100 text-slate-700'
-                            }`}
-                          >
-                            {p.codigo}
-                          </span>
-                          <span className="font-bold text-slate-900 leading-snug">
-                            {p.nombre}
-                          </span>
-                        </div>
-
-                        {p.enlaceSsi && (
-                          <div className="pt-0.5">
-                            <a
-                              href={p.enlaceSsi}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="text-[11px] font-semibold text-blue-600 hover:text-blue-800 hover:underline inline-flex items-center gap-1"
-                              title="Consultar ficha en el Sistema de Seguimiento de Inversiones (SSI)"
-                            >
-                              <span>Sistema de Seguimiento de Inversiones SSI</span>
-                              <ExternalLink className="w-3 h-3" />
-                            </a>
-                          </div>
-                        )}
-                      </div>
-                    </td>
-
-                    <td className="py-3 px-3 text-right text-slate-600 font-mono text-[11px] whitespace-nowrap">
-                      {p.pia.toLocaleString('es-PE')}
-                    </td>
-                    <td className="py-3 px-3 text-right font-bold text-slate-900 font-mono text-[11px] whitespace-nowrap">
-                      {p.pim.toLocaleString('es-PE')}
-                    </td>
-                    <td className="py-3 px-3 text-right text-slate-700 font-mono text-[11px] whitespace-nowrap">
-                      {p.certificacion.toLocaleString('es-PE')}
-                    </td>
-                    <td className="py-3 px-3 text-right text-slate-700 font-mono text-[11px] whitespace-nowrap">
-                      {p.compromisoAnual.toLocaleString('es-PE')}
-                    </td>
-                    <td className="py-3 px-3 text-right text-slate-700 font-mono text-[11px] whitespace-nowrap">
-                      {p.atencionCompromisoMensual.toLocaleString('es-PE')}
-                    </td>
-                    <td className="py-3 px-3 text-right font-bold text-emerald-700 font-mono text-[11px] whitespace-nowrap">
-                      {p.devengado.toLocaleString('es-PE')}
-                    </td>
-                    <td className="py-3 px-3 text-right text-slate-600 font-mono text-[11px] whitespace-nowrap">
-                      {p.girado.toLocaleString('es-PE')}
-                    </td>
-                    <td className="py-3 px-3 text-center whitespace-nowrap">
-                      <span
-                        className={`inline-block font-extrabold px-2 py-0.5 rounded-full text-[11px] ${
-                          p.avancePorcentaje >= 75
-                            ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
-                            : p.avancePorcentaje >= 50
-                            ? 'bg-amber-100 text-amber-800 border border-amber-200'
-                            : 'bg-slate-100 text-slate-700'
-                        }`}
-                      >
-                        {p.avancePorcentaje}%
-                      </span>
-                    </td>
-                    <td className="py-3 px-3 text-center">
-                      <span
-                        className={`inline-block w-2.5 h-2.5 rounded-full ${
-                          p.avancePorcentaje >= 75
-                            ? 'bg-emerald-500'
-                            : p.avancePorcentaje >= 50
-                            ? 'bg-amber-500'
-                            : 'bg-rose-500'
-                        }`}
-                      />
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-            <tfoot>
-              <tr className="bg-slate-100 font-bold text-slate-900 border-t-2 border-slate-300">
-                <td className="py-3 px-4 uppercase text-slate-700">
-                  Total Cartera ({filteredProyectos.length} registros)
-                </td>
-                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
-                  S/. {filteredProyectos.reduce((acc, p) => acc + p.pia, 0).toLocaleString('es-PE')}
-                </td>
-                <td className="py-3 px-3 text-right font-mono text-[11px] text-blue-900 whitespace-nowrap">
-                  S/. {filteredProyectos.reduce((acc, p) => acc + p.pim, 0).toLocaleString('es-PE')}
-                </td>
-                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
-                  S/. {filteredProyectos.reduce((acc, p) => acc + p.certificacion, 0).toLocaleString('es-PE')}
-                </td>
-                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
-                  S/. {filteredProyectos.reduce((acc, p) => acc + p.compromisoAnual, 0).toLocaleString('es-PE')}
-                </td>
-                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
-                  S/. {filteredProyectos.reduce((acc, p) => acc + p.atencionCompromisoMensual, 0).toLocaleString('es-PE')}
-                </td>
-                <td className="py-3 px-3 text-right font-mono text-[11px] text-emerald-800 whitespace-nowrap">
-                  S/. {filteredProyectos.reduce((acc, p) => acc + p.devengado, 0).toLocaleString('es-PE')}
-                </td>
-                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
-                  S/. {filteredProyectos.reduce((acc, p) => acc + p.girado, 0).toLocaleString('es-PE')}
-                </td>
-                <td className="py-3 px-3 text-center text-emerald-800 whitespace-nowrap">
-                  {(
-                    (filteredProyectos.reduce((acc, p) => acc + p.devengado, 0) /
-                      (filteredProyectos.reduce((acc, p) => acc + p.pim, 0) || 1)) *
-                    100
-                  ).toFixed(1)}
-                  %
-                </td>
-                <td></td>
-              </tr>
-            </tfoot>
-          </table>
+          <a
+            href="#seccion-proyectos"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-purple-700 shadow-sm border border-slate-200 hover:bg-purple-50 transition"
+          >
+            <HardHat className="w-3.5 h-3.5 text-purple-600" />
+            <span>3. Proyectos y Obras CUI ({proyectos.length})</span>
+          </a>
         </div>
       </div>
 
@@ -1357,6 +1108,255 @@ export default function PresupuestoPage() {
             </table>
           </div>
         )}
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 3. TABLA DE PROYECTOS: PRODUCTO / PROYECTO (CONSULTA AMIGABLE MEF) */}
+      {/* ========================================================================= */}
+      <div id="seccion-proyectos" className="bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden scroll-mt-6">
+        <div className="p-4 sm:p-5 border-b border-slate-200 bg-slate-50/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="bg-purple-100 text-purple-800 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border border-purple-300">
+                ¿EN QUÉ SE GASTA? · PRODUCTO / PROYECTO
+              </span>
+              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
+                <FolderKanban className="w-4 h-4 text-purple-600" />
+                Cartera de Proyectos de Inversión y Actividades Presupuestales
+              </h3>
+            </div>
+            <p className="text-xs text-slate-500">
+              Seguimiento oficial de obras públicas (CUI) y actividades según Consulta Amigable MEF (Pliego 301087 - Carhuamayo)
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="flex items-center gap-1 bg-slate-200/70 p-1 rounded-lg">
+              <button
+                onClick={() => setFiltroProyectosTipo('proyectos')}
+                className={`px-3 py-1.5 rounded-md text-xs font-bold transition ${
+                  filtroProyectosTipo === 'proyectos'
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Solo Proyectos / Obras CUI ({proyectos.filter((p) => p.esProyecto).length})
+              </button>
+              <button
+                onClick={() => setFiltroProyectosTipo('actividades')}
+                className={`px-3 py-1.5 rounded-md text-xs font-bold transition ${
+                  filtroProyectosTipo === 'actividades'
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Actividades y Servicios ({proyectos.filter((p) => !p.esProyecto).length})
+              </button>
+              <button
+                onClick={() => setFiltroProyectosTipo('todos')}
+                className={`px-3 py-1.5 rounded-md text-xs font-bold transition ${
+                  filtroProyectosTipo === 'todos'
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Ver Todos ({proyectos.length})
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Barra de Búsqueda y Mini-KPIs */}
+        <div className="p-3.5 bg-slate-50/80 border-b border-slate-200 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 text-xs">
+          <div className="relative flex-1 max-w-md">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+            <input
+              type="text"
+              placeholder="Buscar por código CUI o descripción del proyecto..."
+              value={searchTermProyectos}
+              onChange={(e) => setSearchTermProyectos(e.target.value)}
+              className="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-muni-500 shadow-xs"
+            />
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 text-[11px]">
+            <div className="bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+              <span className="text-slate-400 block text-[10px]">PIM Filtrado:</span>
+              <span className="font-bold text-slate-800">
+                S/. {filteredProyectos.reduce((acc, p) => acc + p.pim, 0).toLocaleString('es-PE')}
+              </span>
+            </div>
+
+            <div className="bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+              <span className="text-slate-400 block text-[10px]">Devengado Filtrado:</span>
+              <span className="font-bold text-emerald-700">
+                S/. {filteredProyectos.reduce((acc, p) => acc + p.devengado, 0).toLocaleString('es-PE')}
+              </span>
+            </div>
+
+            <div className="bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+              <span className="text-slate-400 block text-[10px]">Avance Ponderado:</span>
+              <span className="font-extrabold text-purple-700">
+                {(
+                  (filteredProyectos.reduce((acc, p) => acc + p.devengado, 0) /
+                    (filteredProyectos.reduce((acc, p) => acc + p.pim, 0) || 1)) *
+                  100
+                ).toFixed(1)}
+                %
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Tabla Principal de Proyectos con Scroll Horizontal */}
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr className="bg-slate-100/90 font-bold text-slate-600 uppercase border-b border-slate-200 text-[11px]">
+                <th className="py-3 px-4 min-w-[340px]">Proyecto / Actividad</th>
+                <th className="py-3 px-3 text-right whitespace-nowrap">PIA (S/)</th>
+                <th className="py-3 px-3 text-right whitespace-nowrap">PIM (S/)</th>
+                <th className="py-3 px-3 text-right whitespace-nowrap">Certificación (S/)</th>
+                <th className="py-3 px-3 text-right whitespace-nowrap">Compromiso Anual (S/)</th>
+                <th className="py-3 px-3 text-right whitespace-nowrap">Atención Mensual (S/)</th>
+                <th className="py-3 px-3 text-right whitespace-nowrap">Devengado (S/)</th>
+                <th className="py-3 px-3 text-right whitespace-nowrap">Girado (S/)</th>
+                <th className="py-3 px-3 text-center whitespace-nowrap">Avance (%)</th>
+                <th className="py-3 px-3 text-center">Semáforo</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {filteredProyectos.length === 0 ? (
+                <tr>
+                  <td colSpan={10} className="py-8 text-center text-slate-400 font-medium">
+                    No se encontraron proyectos o actividades que coincidan con la búsqueda.
+                  </td>
+                </tr>
+              ) : (
+                filteredProyectos.map((p) => (
+                  <tr key={p.codigo} className="hover:bg-slate-50/80 transition-colors">
+                    <td className="py-3 px-4">
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            className={`font-mono font-extrabold px-1.5 py-0.5 rounded text-[10px] ${
+                              p.esProyecto
+                                ? 'bg-purple-100 text-purple-900 border border-purple-200'
+                                : 'bg-slate-100 text-slate-700'
+                            }`}
+                          >
+                            {p.codigo}
+                          </span>
+                          <span className="font-bold text-slate-900 leading-snug">
+                            {p.nombre}
+                          </span>
+                        </div>
+
+                        {p.enlaceSsi && (
+                          <div className="pt-0.5">
+                            <a
+                              href={p.enlaceSsi}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="text-[11px] font-semibold text-blue-600 hover:text-blue-800 hover:underline inline-flex items-center gap-1"
+                              title="Consultar ficha en el Sistema de Seguimiento de Inversiones (SSI)"
+                            >
+                              <span>Sistema de Seguimiento de Inversiones SSI</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </td>
+
+                    <td className="py-3 px-3 text-right text-slate-600 font-mono text-[11px] whitespace-nowrap">
+                      {p.pia.toLocaleString('es-PE')}
+                    </td>
+                    <td className="py-3 px-3 text-right font-bold text-slate-900 font-mono text-[11px] whitespace-nowrap">
+                      {p.pim.toLocaleString('es-PE')}
+                    </td>
+                    <td className="py-3 px-3 text-right text-slate-700 font-mono text-[11px] whitespace-nowrap">
+                      {p.certificacion.toLocaleString('es-PE')}
+                    </td>
+                    <td className="py-3 px-3 text-right text-slate-700 font-mono text-[11px] whitespace-nowrap">
+                      {p.compromisoAnual.toLocaleString('es-PE')}
+                    </td>
+                    <td className="py-3 px-3 text-right text-slate-700 font-mono text-[11px] whitespace-nowrap">
+                      {p.atencionCompromisoMensual.toLocaleString('es-PE')}
+                    </td>
+                    <td className="py-3 px-3 text-right font-bold text-emerald-700 font-mono text-[11px] whitespace-nowrap">
+                      {p.devengado.toLocaleString('es-PE')}
+                    </td>
+                    <td className="py-3 px-3 text-right text-slate-600 font-mono text-[11px] whitespace-nowrap">
+                      {p.girado.toLocaleString('es-PE')}
+                    </td>
+                    <td className="py-3 px-3 text-center whitespace-nowrap">
+                      <span
+                        className={`inline-block font-extrabold px-2 py-0.5 rounded-full text-[11px] ${
+                          p.avancePorcentaje >= 75
+                            ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                            : p.avancePorcentaje >= 50
+                            ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                            : 'bg-slate-100 text-slate-700'
+                        }`}
+                      >
+                        {p.avancePorcentaje}%
+                      </span>
+                    </td>
+                    <td className="py-3 px-3 text-center">
+                      <span
+                        className={`inline-block w-2.5 h-2.5 rounded-full ${
+                          p.avancePorcentaje >= 75
+                            ? 'bg-emerald-500'
+                            : p.avancePorcentaje >= 50
+                            ? 'bg-amber-500'
+                            : 'bg-rose-500'
+                        }`}
+                      />
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+            <tfoot>
+              <tr className="bg-slate-100 font-bold text-slate-900 border-t-2 border-slate-300">
+                <td className="py-3 px-4 uppercase text-slate-700">
+                  Total Cartera ({filteredProyectos.length} registros)
+                </td>
+                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
+                  S/. {filteredProyectos.reduce((acc, p) => acc + p.pia, 0).toLocaleString('es-PE')}
+                </td>
+                <td className="py-3 px-3 text-right font-mono text-[11px] text-blue-900 whitespace-nowrap">
+                  S/. {filteredProyectos.reduce((acc, p) => acc + p.pim, 0).toLocaleString('es-PE')}
+                </td>
+                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
+                  S/. {filteredProyectos.reduce((acc, p) => acc + p.certificacion, 0).toLocaleString('es-PE')}
+                </td>
+                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
+                  S/. {filteredProyectos.reduce((acc, p) => acc + p.compromisoAnual, 0).toLocaleString('es-PE')}
+                </td>
+                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
+                  S/. {filteredProyectos.reduce((acc, p) => acc + p.atencionCompromisoMensual, 0).toLocaleString('es-PE')}
+                </td>
+                <td className="py-3 px-3 text-right font-mono text-[11px] text-emerald-800 whitespace-nowrap">
+                  S/. {filteredProyectos.reduce((acc, p) => acc + p.devengado, 0).toLocaleString('es-PE')}
+                </td>
+                <td className="py-3 px-3 text-right font-mono text-[11px] whitespace-nowrap">
+                  S/. {filteredProyectos.reduce((acc, p) => acc + p.girado, 0).toLocaleString('es-PE')}
+                </td>
+                <td className="py-3 px-3 text-center text-emerald-800 whitespace-nowrap">
+                  {(
+                    (filteredProyectos.reduce((acc, p) => acc + p.devengado, 0) /
+                      (filteredProyectos.reduce((acc, p) => acc + p.pim, 0) || 1)) *
+                    100
+                  ).toFixed(1)}
+                  %
+                </td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
       </div>
 
       {/* ========================================================================= */}
