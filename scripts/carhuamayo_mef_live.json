@@ -6,11 +6,11 @@
   "totales": {
     "pia": 5865907.0,
     "pim": 10513022.0,
-    "certificacion": 8947706.0,
-    "compromisoAnual": 8652431.0,
-    "atencionCompromiso": 8086912.0,
+    "certificacion": 8950306.0,
+    "compromisoAnual": 8660979.0,
+    "atencionCompromiso": 8092459.0,
     "devengado": 7991117.0,
-    "girado": 7756017.0,
+    "girado": 7789810.0,
     "avancePorcentaje": 76.0
   },
   "rubros": [
@@ -25,7 +25,7 @@
       "compromisoAnual": 4851378.0,
       "atencionCompromiso": 4726195.0,
       "devengado": 4678742.0,
-      "girado": 4674767.0,
+      "girado": 4678342.0,
       "avancePorcentaje": 92.3
     },
     {
@@ -36,10 +36,10 @@
       "pia": 1558449.0,
       "pim": 2054283.0,
       "certificacion": 1677894.0,
-      "compromisoAnual": 1547650.0,
-      "atencionCompromiso": 1350996.0,
+      "compromisoAnual": 1555198.0,
+      "atencionCompromiso": 1355543.0,
       "devengado": 1318655.0,
-      "girado": 1310602.0,
+      "girado": 1310626.0,
       "avancePorcentaje": 64.2
     },
     {
@@ -63,11 +63,11 @@
       "fuenteFinanciamiento": "Recursos Directamente Recaudados",
       "pia": 120000.0,
       "pim": 456373.0,
-      "certificacion": 429333.0,
-      "compromisoAnual": 411873.0,
-      "atencionCompromiso": 409373.0,
+      "certificacion": 431933.0,
+      "compromisoAnual": 412873.0,
+      "atencionCompromiso": 410373.0,
       "devengado": 396378.0,
-      "girado": 383804.0,
+      "girado": 395999.0,
       "avancePorcentaje": 86.9
     },
     {
@@ -81,7 +81,7 @@
       "compromisoAnual": 1579934.0,
       "atencionCompromiso": 1343826.0,
       "devengado": 1343826.0,
-      "girado": 1133327.0,
+      "girado": 1151327.0,
       "avancePorcentaje": 50.5
     }
   ],
@@ -119,10 +119,10 @@
       "categoria": "Gasto Corriente",
       "pia": 600844.0,
       "pim": 1063455.0,
-      "certificacion": 973100.0,
-      "compromisoAnual": 926892.0,
+      "certificacion": 975700.0,
+      "compromisoAnual": 935440.0,
       "devengado": 881320.0,
-      "girado": 868541.0,
+      "girado": 880759.0,
       "avancePorcentaje": 82.9
     },
     {
@@ -161,7 +161,7 @@
       "certificacion": 6602493.0,
       "compromisoAnual": 6455522.0,
       "devengado": 6088232.0,
-      "girado": 5874158.0,
+      "girado": 5895733.0,
       "avancePorcentaje": 75.9
     }
   ],
@@ -228,18 +228,18 @@
     },
     {
       "mes": "Nov",
-      "programado": 900.0,
-      "ejecutado": 61513.0,
-      "acumulado": 8086910.0
+      "programado": 3500.0,
+      "ejecutado": 67061.0,
+      "acumulado": 8092458.0
     },
     {
       "mes": "Dic",
       "programado": 0.0,
       "ejecutado": 0.0,
-      "acumulado": 8086910.0
+      "acumulado": 8092458.0
     }
   ],
-  "fechaActualizacion": "10 de noviembre de 2026 - 8:04 PM",
-  "fechaCorte": "10 de noviembre de 2026",
-  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (10 de noviembre de 2026 - 8:04 PM)"
+  "fechaActualizacion": "11 de noviembre de 2026 - 7:55 PM",
+  "fechaCorte": "11 de noviembre de 2026",
+  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (11 de noviembre de 2026 - 7:55 PM)"
 }
