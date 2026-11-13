@@ -7,10 +7,10 @@
     "pia": 5865907.0,
     "pim": 10513022.0,
     "certificacion": 8950306.0,
-    "compromisoAnual": 8660979.0,
-    "atencionCompromiso": 8092459.0,
+    "compromisoAnual": 8664489.0,
+    "atencionCompromiso": 8098059.0,
     "devengado": 7991117.0,
-    "girado": 7789810.0,
+    "girado": 7940456.0,
     "avancePorcentaje": 76.0
   },
   "rubros": [
@@ -37,7 +37,7 @@
       "pim": 2054283.0,
       "certificacion": 1677894.0,
       "compromisoAnual": 1555198.0,
-      "atencionCompromiso": 1355543.0,
+      "atencionCompromiso": 1358543.0,
       "devengado": 1318655.0,
       "girado": 1310626.0,
       "avancePorcentaje": 64.2
@@ -51,7 +51,7 @@
       "pim": 273841.0,
       "certificacion": 262197.0,
       "compromisoAnual": 261597.0,
-      "atencionCompromiso": 256522.0,
+      "atencionCompromiso": 257822.0,
       "devengado": 253516.0,
       "girado": 253516.0,
       "avancePorcentaje": 92.6
@@ -64,8 +64,8 @@
       "pia": 120000.0,
       "pim": 456373.0,
       "certificacion": 431933.0,
-      "compromisoAnual": 412873.0,
-      "atencionCompromiso": 410373.0,
+      "compromisoAnual": 416383.0,
+      "atencionCompromiso": 411673.0,
       "devengado": 396378.0,
       "girado": 395999.0,
       "avancePorcentaje": 86.9
@@ -81,7 +81,7 @@
       "compromisoAnual": 1579934.0,
       "atencionCompromiso": 1343826.0,
       "devengado": 1343826.0,
-      "girado": 1151327.0,
+      "girado": 1301973.0,
       "avancePorcentaje": 50.5
     }
   ],
@@ -120,7 +120,7 @@
       "pia": 600844.0,
       "pim": 1063455.0,
       "certificacion": 975700.0,
-      "compromisoAnual": 935440.0,
+      "compromisoAnual": 938950.0,
       "devengado": 881320.0,
       "girado": 880759.0,
       "avancePorcentaje": 82.9
@@ -161,7 +161,7 @@
       "certificacion": 6602493.0,
       "compromisoAnual": 6455522.0,
       "devengado": 6088232.0,
-      "girado": 5895733.0,
+      "girado": 6046379.0,
       "avancePorcentaje": 75.9
     }
   ],
@@ -229,17 +229,17 @@
     {
       "mes": "Nov",
       "programado": 3500.0,
-      "ejecutado": 67061.0,
-      "acumulado": 8092458.0
+      "ejecutado": 72661.0,
+      "acumulado": 8098058.0
     },
     {
       "mes": "Dic",
       "programado": 0.0,
       "ejecutado": 0.0,
-      "acumulado": 8092458.0
+      "acumulado": 8098058.0
     }
   ],
-  "fechaActualizacion": "12 de noviembre de 2026 - 8:31 PM",
-  "fechaCorte": "12 de noviembre de 2026",
-  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (12 de noviembre de 2026 - 8:31 PM)"
+  "fechaActualizacion": "13 de noviembre de 2026 - 8:08 PM",
+  "fechaCorte": "13 de noviembre de 2026",
+  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (13 de noviembre de 2026 - 8:08 PM)"
 }
