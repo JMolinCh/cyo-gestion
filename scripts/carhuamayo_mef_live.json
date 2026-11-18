@@ -9,8 +9,8 @@
     "certificacion": 8950306.0,
     "compromisoAnual": 8665114.0,
     "atencionCompromiso": 8098685.0,
-    "devengado": 8054123.0,
-    "girado": 7992863.0,
+    "devengado": 8054749.0,
+    "girado": 7993488.0,
     "avancePorcentaje": 76.6
   },
   "rubros": [
@@ -38,8 +38,8 @@
       "certificacion": 1677894.0,
       "compromisoAnual": 1555823.0,
       "atencionCompromiso": 1359169.0,
-      "devengado": 1327402.0,
-      "girado": 1313674.0,
+      "devengado": 1328028.0,
+      "girado": 1314299.0,
       "avancePorcentaje": 64.6
     },
     {
@@ -121,9 +121,9 @@
       "pim": 1063455.0,
       "certificacion": 975700.0,
       "compromisoAnual": 939575.0,
-      "devengado": 896874.0,
-      "girado": 885713.0,
-      "avancePorcentaje": 84.3
+      "devengado": 897499.0,
+      "girado": 886338.0,
+      "avancePorcentaje": 84.4
     },
     {
       "codigo": "2.4",
@@ -239,7 +239,7 @@
       "acumulado": 8098683.0
     }
   ],
-  "fechaActualizacion": "17 de noviembre de 2026 - 9:24 PM",
-  "fechaCorte": "17 de noviembre de 2026",
-  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (17 de noviembre de 2026 - 9:24 PM)"
+  "fechaActualizacion": "18 de noviembre de 2026 - 8:56 PM",
+  "fechaCorte": "18 de noviembre de 2026",
+  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (18 de noviembre de 2026 - 8:56 PM)"
 }
