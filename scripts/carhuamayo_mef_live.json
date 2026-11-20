@@ -5,13 +5,13 @@
   "ano": 2026,
   "totales": {
     "pia": 5865907.0,
-    "pim": 10513022.0,
+    "pim": 10545256.0,
     "certificacion": 8950306.0,
     "compromisoAnual": 8665114.0,
-    "atencionCompromiso": 8098685.0,
-    "devengado": 8054749.0,
+    "atencionCompromiso": 8099860.0,
+    "devengado": 8055924.0,
     "girado": 8001336.0,
-    "avancePorcentaje": 76.6
+    "avancePorcentaje": 76.4
   },
   "rubros": [
     {
@@ -34,13 +34,13 @@
       "rubro": "FONDO DE COMPENSACION MUNICIPAL",
       "fuenteFinanciamiento": "Recursos Determinados",
       "pia": 1558449.0,
-      "pim": 2054283.0,
+      "pim": 2086517.0,
       "certificacion": 1677894.0,
       "compromisoAnual": 1555823.0,
       "atencionCompromiso": 1359169.0,
       "devengado": 1328028.0,
       "girado": 1320847.0,
-      "avancePorcentaje": 64.6
+      "avancePorcentaje": 63.6
     },
     {
       "id": "rubro-08",
@@ -51,10 +51,10 @@
       "pim": 273841.0,
       "certificacion": 262197.0,
       "compromisoAnual": 261597.0,
-      "atencionCompromiso": 257822.0,
-      "devengado": 256722.0,
+      "atencionCompromiso": 258997.0,
+      "devengado": 257897.0,
       "girado": 256722.0,
-      "avancePorcentaje": 93.7
+      "avancePorcentaje": 94.2
     },
     {
       "id": "rubro-09",
@@ -118,12 +118,12 @@
       "nombre": "BIENES Y SERVICIOS",
       "categoria": "Gasto Corriente",
       "pia": 600844.0,
-      "pim": 1063455.0,
+      "pim": 1095689.0,
       "certificacion": 975700.0,
       "compromisoAnual": 939575.0,
-      "devengado": 897499.0,
+      "devengado": 898674.0,
       "girado": 893338.0,
-      "avancePorcentaje": 84.4
+      "avancePorcentaje": 82.0
     },
     {
       "codigo": "2.4",
@@ -211,35 +211,35 @@
     {
       "mes": "Ago",
       "programado": 1372613.0,
-      "ejecutado": 1263890.0,
-      "acumulado": 7347520.0
+      "ejecutado": 1222037.0,
+      "acumulado": 7305667.0
     },
     {
       "mes": "Sep",
       "programado": 262352.0,
       "ejecutado": 400997.0,
-      "acumulado": 7748517.0
+      "acumulado": 7706664.0
     },
     {
       "mes": "Oct",
       "programado": 88287.0,
       "ejecutado": 276880.0,
-      "acumulado": 8025397.0
+      "acumulado": 7983544.0
     },
     {
       "mes": "Nov",
       "programado": 3500.0,
-      "ejecutado": 73286.0,
-      "acumulado": 8098683.0
+      "ejecutado": 116314.0,
+      "acumulado": 8099858.0
     },
     {
       "mes": "Dic",
       "programado": 0.0,
       "ejecutado": 0.0,
-      "acumulado": 8098683.0
+      "acumulado": 8099858.0
     }
   ],
-  "fechaActualizacion": "19 de noviembre de 2026 - 9:03 PM",
-  "fechaCorte": "19 de noviembre de 2026",
-  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (19 de noviembre de 2026 - 9:03 PM)"
+  "fechaActualizacion": "20 de noviembre de 2026 - 8:49 PM",
+  "fechaCorte": "20 de noviembre de 2026",
+  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (20 de noviembre de 2026 - 8:49 PM)"
 }
