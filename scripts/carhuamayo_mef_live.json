@@ -6,11 +6,11 @@
   "totales": {
     "pia": 5865907.0,
     "pim": 10545256.0,
-    "certificacion": 8950306.0,
-    "compromisoAnual": 8665114.0,
-    "atencionCompromiso": 8099860.0,
-    "devengado": 8055924.0,
-    "girado": 8001336.0,
+    "certificacion": 8976406.0,
+    "compromisoAnual": 8667214.0,
+    "atencionCompromiso": 8101960.0,
+    "devengado": 8058024.0,
+    "girado": 8004611.0,
     "avancePorcentaje": 76.4
   },
   "rubros": [
@@ -35,12 +35,12 @@
       "fuenteFinanciamiento": "Recursos Determinados",
       "pia": 1558449.0,
       "pim": 2086517.0,
-      "certificacion": 1677894.0,
-      "compromisoAnual": 1555823.0,
-      "atencionCompromiso": 1359169.0,
-      "devengado": 1328028.0,
-      "girado": 1320847.0,
-      "avancePorcentaje": 63.6
+      "certificacion": 1703994.0,
+      "compromisoAnual": 1557923.0,
+      "atencionCompromiso": 1361269.0,
+      "devengado": 1330128.0,
+      "girado": 1322947.0,
+      "avancePorcentaje": 63.7
     },
     {
       "id": "rubro-08",
@@ -53,7 +53,7 @@
       "compromisoAnual": 261597.0,
       "atencionCompromiso": 258997.0,
       "devengado": 257897.0,
-      "girado": 256722.0,
+      "girado": 257897.0,
       "avancePorcentaje": 94.2
     },
     {
@@ -119,11 +119,11 @@
       "categoria": "Gasto Corriente",
       "pia": 600844.0,
       "pim": 1095689.0,
-      "certificacion": 975700.0,
-      "compromisoAnual": 939575.0,
-      "devengado": 898674.0,
-      "girado": 893338.0,
-      "avancePorcentaje": 82.0
+      "certificacion": 1001800.0,
+      "compromisoAnual": 941675.0,
+      "devengado": 900774.0,
+      "girado": 896613.0,
+      "avancePorcentaje": 82.2
     },
     {
       "codigo": "2.4",
@@ -228,18 +228,18 @@
     },
     {
       "mes": "Nov",
-      "programado": 3500.0,
-      "ejecutado": 116314.0,
-      "acumulado": 8099858.0
+      "programado": 29600.0,
+      "ejecutado": 118414.0,
+      "acumulado": 8101958.0
     },
     {
       "mes": "Dic",
       "programado": 0.0,
       "ejecutado": 0.0,
-      "acumulado": 8099858.0
+      "acumulado": 8101958.0
     }
   ],
-  "fechaActualizacion": "20 de noviembre de 2026 - 8:49 PM",
-  "fechaCorte": "20 de noviembre de 2026",
-  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (20 de noviembre de 2026 - 8:49 PM)"
+  "fechaActualizacion": "21 de noviembre de 2026 - 7:51 PM",
+  "fechaCorte": "21 de noviembre de 2026",
+  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (21 de noviembre de 2026 - 7:51 PM)"
 }
