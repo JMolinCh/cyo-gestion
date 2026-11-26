@@ -8,10 +8,10 @@
     "pim": 10545256.0,
     "certificacion": 8976406.0,
     "compromisoAnual": 8667214.0,
-    "atencionCompromiso": 8101960.0,
-    "devengado": 8058024.0,
-    "girado": 8004611.0,
-    "avancePorcentaje": 76.4
+    "atencionCompromiso": 8188955.0,
+    "devengado": 8145019.0,
+    "girado": 8070879.0,
+    "avancePorcentaje": 77.2
   },
   "rubros": [
     {
@@ -37,10 +37,10 @@
       "pim": 2086517.0,
       "certificacion": 1703994.0,
       "compromisoAnual": 1557923.0,
-      "atencionCompromiso": 1361269.0,
-      "devengado": 1330128.0,
-      "girado": 1322947.0,
-      "avancePorcentaje": 63.7
+      "atencionCompromiso": 1448264.0,
+      "devengado": 1417123.0,
+      "girado": 1385615.0,
+      "avancePorcentaje": 67.9
     },
     {
       "id": "rubro-08",
@@ -67,7 +67,7 @@
       "compromisoAnual": 416383.0,
       "atencionCompromiso": 411673.0,
       "devengado": 399978.0,
-      "girado": 395999.0,
+      "girado": 399599.0,
       "avancePorcentaje": 87.6
     },
     {
@@ -95,9 +95,9 @@
       "pim": 1197845.0,
       "certificacion": 1155427.0,
       "compromisoAnual": 1053331.0,
-      "devengado": 861137.0,
-      "girado": 853738.0,
-      "avancePorcentaje": 71.9
+      "devengado": 948133.0,
+      "girado": 916407.0,
+      "avancePorcentaje": 79.2
     },
     {
       "codigo": "2.2",
@@ -122,7 +122,7 @@
       "certificacion": 1001800.0,
       "compromisoAnual": 941675.0,
       "devengado": 900774.0,
-      "girado": 896613.0,
+      "girado": 900213.0,
       "avancePorcentaje": 82.2
     },
     {
@@ -229,17 +229,17 @@
     {
       "mes": "Nov",
       "programado": 29600.0,
-      "ejecutado": 118414.0,
-      "acumulado": 8101958.0
+      "ejecutado": 205410.0,
+      "acumulado": 8188954.0
     },
     {
       "mes": "Dic",
       "programado": 0.0,
       "ejecutado": 0.0,
-      "acumulado": 8101958.0
+      "acumulado": 8188954.0
     }
   ],
-  "fechaActualizacion": "25 de noviembre de 2026 - 10:02 PM",
-  "fechaCorte": "25 de noviembre de 2026",
-  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (25 de noviembre de 2026 - 10:02 PM)"
+  "fechaActualizacion": "26 de noviembre de 2026 - 9:59 PM",
+  "fechaCorte": "26 de noviembre de 2026",
+  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (26 de noviembre de 2026 - 9:59 PM)"
 }
