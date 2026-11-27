@@ -9,8 +9,8 @@
     "certificacion": 8976406.0,
     "compromisoAnual": 8667214.0,
     "atencionCompromiso": 8188955.0,
-    "devengado": 8145019.0,
-    "girado": 8070879.0,
+    "devengado": 8145519.0,
+    "girado": 8052210.0,
     "avancePorcentaje": 77.2
   },
   "rubros": [
@@ -25,7 +25,7 @@
       "compromisoAnual": 4851378.0,
       "atencionCompromiso": 4726195.0,
       "devengado": 4726195.0,
-      "girado": 4725795.0,
+      "girado": 4707126.0,
       "avancePorcentaje": 93.2
     },
     {
@@ -38,7 +38,7 @@
       "certificacion": 1703994.0,
       "compromisoAnual": 1557923.0,
       "atencionCompromiso": 1448264.0,
-      "devengado": 1417123.0,
+      "devengado": 1417623.0,
       "girado": 1385615.0,
       "avancePorcentaje": 67.9
     },
@@ -121,9 +121,9 @@
       "pim": 1095689.0,
       "certificacion": 1001800.0,
       "compromisoAnual": 941675.0,
-      "devengado": 900774.0,
+      "devengado": 901274.0,
       "girado": 900213.0,
-      "avancePorcentaje": 82.2
+      "avancePorcentaje": 82.3
     },
     {
       "codigo": "2.4",
@@ -161,7 +161,7 @@
       "certificacion": 6602493.0,
       "compromisoAnual": 6455522.0,
       "devengado": 6088232.0,
-      "girado": 6046379.0,
+      "girado": 6027709.0,
       "avancePorcentaje": 75.9
     }
   ],
@@ -239,7 +239,7 @@
       "acumulado": 8188954.0
     }
   ],
-  "fechaActualizacion": "26 de noviembre de 2026 - 9:59 PM",
-  "fechaCorte": "26 de noviembre de 2026",
-  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (26 de noviembre de 2026 - 9:59 PM)"
+  "fechaActualizacion": "27 de noviembre de 2026 - 9:42 PM",
+  "fechaCorte": "27 de noviembre de 2026",
+  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (27 de noviembre de 2026 - 9:42 PM)"
 }
