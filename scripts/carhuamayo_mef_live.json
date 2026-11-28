@@ -10,7 +10,7 @@
     "compromisoAnual": 8667214.0,
     "atencionCompromiso": 8188955.0,
     "devengado": 8145519.0,
-    "girado": 8052210.0,
+    "girado": 8121790.0,
     "avancePorcentaje": 77.2
   },
   "rubros": [
@@ -25,7 +25,7 @@
       "compromisoAnual": 4851378.0,
       "atencionCompromiso": 4726195.0,
       "devengado": 4726195.0,
-      "girado": 4707126.0,
+      "girado": 4725795.0,
       "avancePorcentaje": 93.2
     },
     {
@@ -39,7 +39,7 @@
       "compromisoAnual": 1557923.0,
       "atencionCompromiso": 1448264.0,
       "devengado": 1417623.0,
-      "girado": 1385615.0,
+      "girado": 1394673.0,
       "avancePorcentaje": 67.9
     },
     {
@@ -81,7 +81,7 @@
       "compromisoAnual": 1579934.0,
       "atencionCompromiso": 1343826.0,
       "devengado": 1343826.0,
-      "girado": 1301973.0,
+      "girado": 1343826.0,
       "avancePorcentaje": 50.5
     }
   ],
@@ -96,7 +96,7 @@
       "certificacion": 1155427.0,
       "compromisoAnual": 1053331.0,
       "devengado": 948133.0,
-      "girado": 916407.0,
+      "girado": 924964.0,
       "avancePorcentaje": 79.2
     },
     {
@@ -122,7 +122,7 @@
       "certificacion": 1001800.0,
       "compromisoAnual": 941675.0,
       "devengado": 901274.0,
-      "girado": 900213.0,
+      "girado": 900713.0,
       "avancePorcentaje": 82.3
     },
     {
@@ -161,7 +161,7 @@
       "certificacion": 6602493.0,
       "compromisoAnual": 6455522.0,
       "devengado": 6088232.0,
-      "girado": 6027709.0,
+      "girado": 6088232.0,
       "avancePorcentaje": 75.9
     }
   ],
@@ -239,7 +239,7 @@
       "acumulado": 8188954.0
     }
   ],
-  "fechaActualizacion": "27 de noviembre de 2026 - 9:42 PM",
-  "fechaCorte": "27 de noviembre de 2026",
-  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (27 de noviembre de 2026 - 9:42 PM)"
+  "fechaActualizacion": "28 de noviembre de 2026 - 8:38 PM",
+  "fechaCorte": "28 de noviembre de 2026",
+  "ultimaActualizacion": "Sincronizado en vivo con MEF Consulta Amigable (28 de noviembre de 2026 - 8:38 PM)"
 }
